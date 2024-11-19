@@ -10,10 +10,10 @@ from aisd_msgs.msg import Hand
 
 
 
-class ImageSubscriber(Node):
+class Hands(Node):
 
     def __init__(self):
-        super().__init__('image_subscriber')
+        super().__init__('hands')
         self.subscription = self.create_subscription(
             String,
             'topic',
