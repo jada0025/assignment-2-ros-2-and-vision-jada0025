@@ -7,10 +7,10 @@ mp_hands = mp.solutions.hands
 
 
 
-class ImageSubscriber(Node):
+class Move(Node):
 
     def __init__(self):
-        super().__init__('image_subscriber')
+        super().__init__('move')
         self.subscription = self.create_subscription(
             String,
             'topic',
@@ -52,14 +52,14 @@ class ImageSubscriber(Node):
 def main(args=None):
     rclpy.init(args=args)
 
-    image_subscriber = ImageSubscriber()
+    move = Move()
 
     rclpy.spin(image_subscriber)
 
     # Destroy the node explicitly
     # (optional - otherwise it will be done automatically
     # when the garbage collector destroys the node object)
-    image_subscriber.destroy_node()
+    move.destroy_node()
     rclpy.shutdown()
 
 
