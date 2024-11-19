@@ -55,7 +55,7 @@ class Hands(Node):
 def main(args=None):
     rclpy.init(args=args)
 
-    image_subscriber = ImageSubscriber()
+    hands = Hands()
 
     rclpy.spin(image_subscriber)
 
