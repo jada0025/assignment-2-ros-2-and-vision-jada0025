@@ -1,9 +1,8 @@
+Here are the imports:
 import rclpy
 from rclpy.node import Node
 from aisd_msgs.msg import Hand
 from geometry_msgs.msg import Twist
-
-mp_hands = mp.solutions.hands
 
 
 
@@ -13,13 +12,10 @@ class Move(Node):
         super().__init__('move')
         self.subscription = self.create_subscription(
             String,
-            'topic',
+            'video_frames',
             self.listener_callback,
             10)
         self.subscription  # prevent unused variable warning
-        # A converter between ROS and OpenCV images
-        self.br = CvBridge()
-        self.hand_publisher = self.create_publisher(Hand, 'cmd_hand', 10)
 
     def listener_callback(self, msg):
 
@@ -54,7 +50,7 @@ def main(args=None):
 
     move = Move()
 
-    rclpy.spin(image_subscriber)
+    rclpy.spin(move)
 
     # Destroy the node explicitly
     # (optional - otherwise it will be done automatically
