@@ -20,7 +20,7 @@ class ImagePublisher(Node):
 
     def timer_callback(self):
         msg = Image()
-        msg.data = 'Hello World: %d' % self.i
+        msg.data = 'Hello World: '
         self.publisher_.publish(msg)
         self.get_logger().info('Publishing: "%s"' % msg.data)
         ret, frame = self.cap.read()
