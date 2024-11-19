@@ -25,7 +25,7 @@ class Hands(Node):
 
 
     def listener_callback(self, msg):
-    image = self.br.imgmsg_to_cv2(msg)
+        image = self.br.imgmsg_to_cv2(msg)
 
     PINKY_FINGER_TIP = 20
     INDEX_FINGER_TIP = 8
