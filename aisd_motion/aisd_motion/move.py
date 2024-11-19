@@ -1,4 +1,3 @@
-Here are the imports:
 import rclpy
 from rclpy.node import Node
 from aisd_msgs.msg import Hand
