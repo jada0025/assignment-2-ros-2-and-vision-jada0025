@@ -14,7 +14,7 @@ class Hands(Node):
     def __init__(self):
         super().__init__('hands')
         self.subscription = self.create_subscription(
-            String,
+            Hand,
             'video_frames',
             self.listener_callback,
             10)
