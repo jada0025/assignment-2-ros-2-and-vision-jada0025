@@ -11,7 +11,7 @@ class ImagePublisher(Node):
 
     def __init__(self):
         super().__init__('image_publisher')
-        self.publisher_ = self.create_publisher(String, 'video_frames', 10)
+        self.publisher_ = self.create_publisher(Image, 'video_frames', 10)
         timer_period = 0.2  # seconds
         self.timer = self.create_timer(timer_period, self.timer_callback)
         self.cap = cv2.VideoCapture(0)
@@ -19,10 +19,6 @@ class ImagePublisher(Node):
 
 
     def timer_callback(self):
-        msg = Image()
-        msg.data = 'Hello World: '
-        self.publisher_.publish(msg)
-        self.get_logger().info('Publishing: "%s"' % msg.data)
         ret, frame = self.cap.read()
         if ret == True:
             self.publisher_.publish(self.br.cv2_to_imgmsg(frame))
